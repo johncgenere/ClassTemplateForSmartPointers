@@ -110,7 +110,9 @@ my_shared_ptr<Type>::~my_shared_ptr(){
 
   if (pointer != nullptr){    // pointer points somewhere
     delete pointer;           // free up space
+    delete counter;
     pointer = nullptr;
+    counter = nullptr;
   }
 }
 
@@ -142,7 +144,7 @@ my_shared_ptr<Type>& my_shared_ptr<Type>::operator=(const my_shared_ptr &rhs){
 
   if (rhs.pointer == nullptr){   // in case rhs doesn't point somewhere
     pointer = nullptr;
-    pointer = nullptr;
+    counter = nullptr;
   }
 
   else{
